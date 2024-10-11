@@ -2,7 +2,7 @@ FROM debian:12
 
 # 安装环境
 RUN apt-get update
-RUN apt-get install -y curl vim procps sudo
+RUN apt-get install -y curl vim procps sudo net-tools
 
 # 创建 elasticsearch 用户
 RUN useradd -m -g sudo -s /bin/bash elasticsearch
@@ -29,5 +29,10 @@ RUN chmod +x entrypoint.sh
 
 # 切换执行脚本到 es 目录下
 WORKDIR /home/elasticsearch
+COPY ./features ./features
+
+# 开放端口
+EXPOSE 9200
+EXPOSE 9300
 
 ENTRYPOINT ["/home/elasticsearch/entrypoint.sh"]
