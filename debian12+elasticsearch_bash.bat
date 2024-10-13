@@ -1,1 +1,2 @@
-docker exec -it elasticsearch /bin/bash
+@docker start elasticsearch
+@docker exec -it elasticsearch /bin/bash
