@@ -32,7 +32,7 @@ curl -X POST "localhost:9200/track_match_by_name/_doc?pretty" -H 'Content-Type: 
 
 # 尝试用 should 去匹配文档
 # 在三个匹配到的文档结果里会多一个 matched_queries 字段，这个字段用 array 的形式存了命中的 _name
-curl -X POST "localhost:9200/track_match_by_name/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/track_match_by_name/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {

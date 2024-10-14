@@ -48,7 +48,7 @@ curl -X POST "localhost:9200/bool_queries/_doc?pretty" -H 'Content-Type: applica
 # 可以看着结果理解下每个词条的作用
 #   - 第一条因为年龄项在范围内被 must_not 剔除了
 #   - 第三条因为 tags 不包含 production 字段被 filter 剔除了
-curl -X POST "localhost:9200/bool_queries/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/bool_queries/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {

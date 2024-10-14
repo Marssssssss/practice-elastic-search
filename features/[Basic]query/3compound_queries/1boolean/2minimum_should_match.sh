@@ -46,7 +46,7 @@ curl -X POST "localhost:9200/minimum_should_match/_doc?pretty" -H 'Content-Type:
 
 # 进行查询
 # 可以看到所有文档都匹配到
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -62,7 +62,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 
 # Integer 指定 minimum_should_match 为 2
 # 只有匹配到两个条件的文档留下来了（匹配到三个或者以上的也能留下
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -79,7 +79,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 
 # Negative Integer 指定 minimum_should_match 为 -1，等效于最大条件数 -1，这里也即 2，等同于 minimum_should_match Integer 指定为 2
 # 只有匹配到两个条件的文档留下来了（匹配到三个或者以上的也能留下）
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -95,7 +95,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 '
 
 # percentage 指定 minimum_should_match 为 70%，等效于最大条件数乘上这个百分比，结果向下取整，这里最终结果为 2
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -112,7 +112,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 
 # Negative Percentage 指定 minimum_should_match 为 -25%，等效于最大条件数乘上（1 - 这个百分比），结果向上取整，这里计算结果为 3
 # 所以最终只会有一条文档结果
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -128,7 +128,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 '
 
 # Combination 指定为 3<90%，如果总条件数小于等于 3 就全部需要，否则视作用后面那个值来指定 minimum_should_match，这里最终结果是 3
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -143,7 +143,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 }
 '
 # Case2 大于 2 则按 3 个条件匹配
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {
@@ -165,7 +165,7 @@ curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Ty
 #   - 如果总条件数在 [0, 1] 区间，就按照条件数来指定 minimum_should_match
 #   - 如果总条件数在 (1, 3] 区间，就按照 1<1 的不满足条件指定 minimum_should_match = 1
 #   - 如果总条件数大于 3，就按照 3<90% 的不满足条件指定 minimum_should_match = 90%
-curl -X POST "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/minimum_should_match/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool" : {

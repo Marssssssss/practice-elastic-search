@@ -24,7 +24,7 @@ curl -X POST "localhost:9200/constant_score/_doc?pretty" -H 'Content-Type: appli
 
 # 查询
 # 可以看到匹配到的文档，_score 都是 1.2
-curl -X POST "localhost:9200/constant_score/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/constant_score/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "constant_score": {
@@ -39,7 +39,7 @@ curl -X POST "localhost:9200/constant_score/_search?pretty" -H 'Content-Type: ap
 
 # 尝试多条查询
 # 可以看到同时匹配了两条的 score 是 3.2，只匹配到 user.id 一条的 score 是 1.2
-curl -X POST "localhost:9200/constant_score/_search?pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "localhost:9200/constant_score/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "bool": {
