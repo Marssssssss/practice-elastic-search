@@ -5,6 +5,8 @@
 #   - first 第一个匹配的权重
 #   - max 最大匹配
 #   - min 最小匹配
+# 文档最终分值公式 boost_mode(score_mode(function1, function2...), boost * doc_score)
+#   - 其中 boost * doc_score 被称作 query_score
 
 # 创建文档
 curl -X POST "localhost:9200/function_score_score_mode/_doc?pretty" -H "Content-Type: application/json" -d'

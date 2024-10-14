@@ -1,10 +1,12 @@
 # function_score 支持自定义文档的评分规则，其逻辑如下
-#  1.先通过 queries 筛选出候选文档，每一个 function 都会对候选文档使用指定的函数进行评分计算
+#  1.先通过 query 筛选出候选文档，每一个 function 都会对候选文档使用指定的函数进行评分计算
 #  2.同一个文档被多个 function 命中时，可以指定评分叠加的规则
 # 基础结构
 #  - query 基本筛选规则，筛选出最初的一组文档
-#  - boost 基础评分，赋予所有初始候选文档的初始评分
+#  - boost 文档评分乘数，默认是 1.0
 #  - functions 对候选文档依次执行的 function，首先匹配 filter，匹配成功后才会执行评分计算，默认情况下多个匹配之间的 weight 会相乘
+#     - 只有单个 function 的时候直接写在 function_score 块下，如果有多个才需要写 functions
+#     - weight 字段只能用在 functions 下
 
 # 创建文档
 curl -X POST "localhost:9200/function_score/_doc?pretty" -H "Content-Type: application/json" -d'
