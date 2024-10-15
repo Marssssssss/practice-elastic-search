@@ -8,6 +8,7 @@
 #  - min 取最小值
 # 文档最终分值公式 boost_mode(score_mode(function1, function2...), boost * doc_score)
 #   - 其中 boost * doc_score 被称作 query_score
+#   - function 分值为 具体函数分值 * weight，无分值计算的函数默认分值为 1.0
 
 # 创建文档
 curl -X POST "localhost:9200/function_score_boost_mode/_doc?pretty" -H "Content-Type: application/json" -d'

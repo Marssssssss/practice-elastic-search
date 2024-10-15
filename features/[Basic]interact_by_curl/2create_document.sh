@@ -1,5 +1,6 @@
 # POST books/_doc
 # 在 books 里面添加一个文档
+# 在不定义 dynamic_mapping 的情况下，添加的第一个文档会决定每个字段的类型
 curl -X POST "localhost:9200/books/_doc?pretty" -H 'Content-Type: application/json' -d'
 {
   "name": "Snow Crash",
