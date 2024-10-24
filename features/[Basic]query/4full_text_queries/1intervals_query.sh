@@ -13,6 +13,7 @@
 #   - any_of，上面几个单查询的联合规则，包含的规则有一个匹配到即可
 
 # TODO 研究下 128 个 term 限制是什么意思，每个文档最多 128 种 term 还是整个 index 最多只能匹配到 128 个 term
+# TODO filter 规则后面再补充
 
 # 创建文档
 curl -X POST "localhost:9200/intervals_queries/_doc?pretty" -H "Content-Type: application/json" -d'
