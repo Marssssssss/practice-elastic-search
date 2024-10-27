@@ -24,6 +24,8 @@ es 在最基本的文本/数字匹配规则上提供了更多层控制，从而�
 - match 查询，利用分词器 analyzer 分词匹配，支持模糊匹配和分词逻辑匹配
 - match_bool_prefix 查询语法糖，将 term + term + ... + term + prefix 的 bool 查询合并到一个字符串里的查询
 - match_phrase 查询，对短语进行查询，也就是对连续的 term 串进行查询，能用参数支持更灵活的有间隔情况的匹配
+- match_phrase_prefix 查询语法糖，匹配 "term term ... term prefix" 这种形式的分词串，类似 match_bool_prefix 和 match_phrase 的结合
+- combined_fields 查询，同时对多个字段进行查询，其中一个匹配即匹配文档
 
 ## TODO
 - Geo Queries
