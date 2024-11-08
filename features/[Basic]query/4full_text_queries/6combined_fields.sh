@@ -39,6 +39,7 @@ curl -X POST "localhost:9200/combined_fields/_doc?pretty" -H "Content-Type: appl
 '
 
 # 基本查询
+# 字段支持通配符匹配
 curl -X GET "localhost:9200/combined_fields/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
