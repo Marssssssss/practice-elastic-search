@@ -10,8 +10,13 @@
 根据标签和标题即可大致了解这个 feature 主要讲的啥。
 
 ## 食用方法
-每个 sh 里面可能包含多种姿势，在自己实践的时候还是尽量打开 sh，自己一个命令一个命令操作。
 
-比如一个 must 查询可能会给出好多个查询的 case，直接执行的话返回内容有点多，参照注释一个命令一个命令理解更为合适一些。
+1. 有空可以选择性地选择一个 feature 对照文档进行学习，配合实践内容记录在对应 feature 块里
+2. 已经通过其它途径实践过的内容可以直接复现 case 并记录
 
-TODO：或许可以写成 sleep 执行？一步一步跑还能避免执行过快导致没拉到新加入的文档 =。=
+## feature 大类列表
+
+- [Basic]Interact_by_curl -> 通过 curl 和 elasticsearch 交互的例子，最基本的 linux es 交互手段，实践的基础
+- [Basic]Mapping -> index 字段 mapping 相关的内容
+- [Basic]Query -> 查询相关的内容，记录各种各样查询文档的方法
+- [Benchmark]Query_vs_Filter -> 对比 query 语义和 filter 语义两种查询语义的效率区别
