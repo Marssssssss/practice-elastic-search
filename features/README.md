@@ -17,6 +17,8 @@
 ## feature 大类列表
 
 - [Basic]Interact_by_curl -> 通过 curl 和 elasticsearch 交互的例子，最基本的 linux es 交互手段，实践的基础
+- [Basic]Index -> 索引层面的特性
+- [Basic]Language_driver -> 各个语言的 elasticsearch 驱动
 - [Basic]Mapping -> index 字段 mapping 相关的内容
 - [Basic]Query -> 查询相关的内容，记录各种各样查询文档的方法
-- [Benchmark]Query_vs_Filter -> 对比 query 语义和 filter 语义两种查询语义的效率区别
+- [Benchmark]Index -> 索引层面的一些基准测试
